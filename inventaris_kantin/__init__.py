@@ -1,0 +1,1 @@
+from .kantin import Makanan, Minuman
