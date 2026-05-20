@@ -197,7 +197,7 @@ total bayar :
 Rp {total}
 """)
 
-            bayar = print(int(
+            bayar = (int(
                 input(
                     "uang bayar : "
                 ))
