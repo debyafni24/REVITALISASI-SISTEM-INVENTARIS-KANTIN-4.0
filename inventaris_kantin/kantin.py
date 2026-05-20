@@ -29,9 +29,7 @@ class Produk(ABC):
             self.__stok = stok_baru
 
         else:
-            print(
-                "stok tidak valid"
-            )
+            print("stok tidak valid")
 
     @abstractmethod
     def hitung_total(self, jumlah):
@@ -69,27 +67,19 @@ class Makanan(
 
         sekarang = datetime.now()
 
-        selisih = (
-            self.exp - sekarang
-        ).days
+        selisih = (self.exp - sekarang).days
 
         if selisih < 0:
 
-            return (
-                "makanan tidak layak jual"
-            )
+            return ("makanan tidak layak jual")
 
         elif selisih <= 2:
 
-            return (
-                "makanan hampir expired"
-            )
+            return ("makanan hampir expired")
 
         else:
 
-            return (
-                "makanan layak jual"
-            )
+            return ("makanan layak jual")
 
     def hitung_total(
         self,
@@ -102,19 +92,12 @@ class Makanan(
 
         sekarang = datetime.now()
 
-        selisih = (
-            self.exp - sekarang
-        ).days
+        selisih = (self.exp - sekarang).days
 
         if selisih <= 2:
 
-            diskon = (
-                harga_awal * 0.10
-            )
-
-            total = (
-                harga_awal - diskon
-            )
+            diskon = (harga_awal * 0.10)
+            total = (harga_awal - diskon)
 
         else:
 
@@ -148,23 +131,13 @@ class Minuman(
 
         if self.suhu > 10:
 
-            return (
-                "minuman kurang dingin"
-            )
+            return ("minuman kurang dingin")
 
         else:
 
-            return (
-                "minuman layak jual"
-            )
+            return ("minuman dingin")
 
-    def hitung_total(
-        self,
-        jumlah
-    ):
+    def hitung_total(self,jumlah):
 
-        total = (
-            self.get_harga() * jumlah
-        )
-
+        total = (self.get_harga() * jumlah)
         return total

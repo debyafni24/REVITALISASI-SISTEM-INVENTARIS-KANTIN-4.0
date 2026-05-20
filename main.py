@@ -5,35 +5,13 @@ riwayat = []
 
 def tambah_makanan():
 
-    nama = input(
-        "nama makanan : "
-    )
+    nama = input("nama makanan : ")
+    harga = int(input("harga : "))
+    stok = int(input("stok : "))
 
-    harga = int(
-        input("harga : ")
-    )
-
-    stok = int(
-        input("stok : ")
-    )
-
-    tanggal = int(
-        input(
-            "tanggal expired : "
-        )
-    )
-
-    bulan = int(
-        input(
-            "bulan expired : "
-        )
-    )
-
-    tahun = int(
-        input(
-            "tahun expired : "
-        )
-    )
+    tanggal = int(input("tanggal expired : "))
+    bulan = int(input("bulan expired : "))
+    tahun = int(input("tahun expired : "))
 
     barang = Makanan(
         nama,
@@ -44,34 +22,20 @@ def tambah_makanan():
         tahun
     )
 
-    daftar_barang.append(
-        barang
-    )
+    daftar_barang.append(barang)
 
-    print(
-        "makanan berhasil ditambahkan"
-    )
+    print("makanan berhasil ditambahkan")
 
 
 def tambah_minuman():
 
-    nama = input(
-        "nama minuman : "
-    )
+    nama = input("nama minuman : ")
 
-    harga = int(
-        input("harga : ")
-    )
+    harga = int(input("harga : "))
 
-    stok = int(
-        input("stok : ")
-    )
+    stok = int(input("stok : "))
 
-    suhu = int(
-        input(
-            "suhu minuman : "
-        )
-    )
+    suhu = int(input("suhu minuman : "))
 
     barang = Minuman(
         nama,
@@ -80,31 +44,19 @@ def tambah_minuman():
         suhu
     )
 
-    daftar_barang.append(
-        barang
-    )
+    daftar_barang.append(barang)
 
-    print(
-        "minuman berhasil ditambahkan"
-    )
+    print("minuman berhasil ditambahkan")
 
 
 def lihat_barang():
 
-    if len(
-        daftar_barang
-    ) == 0:
-
-        print(
-            "barang kosong"
-        )
+    if len(daftar_barang) == 0:
+        print("barang kosong")
 
     else:
 
-        for i, barang in enumerate(
-            daftar_barang,
-            start=1
-        ):
+        for i, barang in enumerate(daftar_barang,start=1):
 
             print(f"""
 ===== data barang =====
@@ -119,13 +71,9 @@ status : {barang.layak()}
 
 def beli_barang():
 
-    if len(
-        daftar_barang
-    ) == 0:
+    if len(daftar_barang) == 0:
 
-        print(
-            "barang kosong"
-        )
+        print("barang kosong")
 
     else:
 
@@ -133,56 +81,26 @@ def beli_barang():
 ===== daftar barang =====
 """)
 
-        for i, barang in enumerate(
-            daftar_barang,
-            start=1
-        ):
+        for i, barang in enumerate(daftar_barang,start=1):
 
-            print(
-                f"{i}. {barang.nama}"
-            )
+            print(f"{i}. {barang.nama}")
 
-        index = int(
-            input(
-                "pilih barang : "
-            )
-        ) - 1
+        index = int(input("pilih barang : ")) - 1
 
-        nama_pembeli = input(
-            "nama pembeli : "
-        )
+        nama_pembeli = input("nama pembeli : ")
 
-        jumlah = int(
-            input(
-                "jumlah beli : "
-            )
-        )
+        jumlah = int(input("jumlah beli : "))
 
-        if jumlah > daftar_barang[
-            index
-        ].get_stok():
+        if jumlah > daftar_barang[index].get_stok():
 
-            print(
-                "stok tidak cukup"
-            )
+            print("stok tidak cukup")
 
         else:
 
-            harga_awal = (
-                daftar_barang[
-                    index
-                ].get_harga() * jumlah
-            )
+            harga_awal = (daftar_barang[index].get_harga() * jumlah)
 
-            total = daftar_barang[
-                index
-            ].hitung_total(
-                jumlah
-            )
-
-            diskon = (
-                harga_awal - total
-            )
+            total = daftar_barang[index].hitung_total(jumlah)
+            diskon = (harga_awal - total)
 
             print(f"""
 ===== rincian harga =====
@@ -197,17 +115,11 @@ total bayar :
 Rp {total}
 """)
 
-            bayar = (int(
-                input(
-                    "uang bayar : "
-                ))
-            )
+            bayar = (int(input("Masukkan uang : ")))
 
             if bayar < total:
 
-                kurang = (
-                    total - bayar
-                )
+                kurang = (total - bayar)
 
                 print(f"""
 uang kurang :
@@ -216,21 +128,11 @@ Rp {kurang}
 
             else:
 
-                kembalian = (
-                    bayar - total
-                )
+                kembalian = (bayar - total)
 
-                stok_baru = (
-                    daftar_barang[
-                        index
-                    ].get_stok() - jumlah
-                )
+                stok_baru = (daftar_barang[index].get_stok() - jumlah)
 
-                daftar_barang[
-                    index
-                ].set_stok(
-                    stok_baru
-                )
+                daftar_barang[index].set_stok(stok_baru)
 
                 riwayat.append(
                     {
@@ -329,9 +231,7 @@ while True:
 5. keluar
 """)
 
-    pilih = input(
-        "pilih menu : "
-    )
+    pilih = input("pilih menu : ")
 
     if pilih == "1":
 
@@ -351,14 +251,10 @@ while True:
 
     elif pilih == "5":
 
-        print(
-            "program selesai"
-        )
+        print("program selesai")
 
         break
 
     else:
 
-        print(
-            "menu tidak tersedia"
-        )
+        print("menu tidak tersedia")
