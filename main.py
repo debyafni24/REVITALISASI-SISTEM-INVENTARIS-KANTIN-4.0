@@ -13,14 +13,7 @@ def tambah_makanan():
     bulan = int(input("bulan expired : "))
     tahun = int(input("tahun expired : "))
 
-    barang = Makanan(
-        nama,
-        harga,
-        stok,
-        tanggal,
-        bulan,
-        tahun
-    )
+    barang = Makanan(nama,harga,stok,tanggal,bulan,tahun)
 
     daftar_barang.append(barang)
 
